@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en" id="cvHtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Osama Gariba — Football CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&family=Bebas+Neue&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      background: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Arabic font override */
+    [dir="rtl"] { font-family: 'Cairo', sans-serif; }
+    [dir="rtl"] .header-name,
+    [dir="rtl"] .sec-heading h2,
+    [dir="rtl"] .exp-role,
+    [dir="rtl"] .s-value,
+    [dir="rtl"] .stat-item .s-label,
+    [dir="rtl"] .cv-footer span { font-family: 'Cairo', sans-serif; }
+
+    /* ── Print bar ── */
+    .print-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      background: linear-gradient(135deg, #0a0f1e, #1a1a2e);
+      border-bottom: 2px solid #F5C518;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .print-bar span {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      color: #8892A4;
+      text-transform: uppercase;
+    }
+    .btn-save {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #F5C518, #C9A000);
+      color: #0a0f1e;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 22px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .btn-save:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(245,197,24,0.4); }
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #8892A4;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+    .btn-back:hover { color: #F5C518; border-color: #F5C518; }
+
+    /* Language badge in print bar */
+    .lang-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: rgba(245,197,24,0.1);
+      border: 1px solid rgba(245,197,24,0.3);
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: #F5C518;
+      text-transform: uppercase;
+    }
+
+    /* ── A4 Page ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: #fff;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 58px;
+      position: relative;
+    }
+
+    /* ── HEADER ── */
+    .cv-header {
+      background: linear-gradient(135deg, #0a0f1e 0%, #1D3557 60%, #0a0f1e 100%);
+      padding: 34px 40px 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cv-header::before {
+      content: 'GARIBA';
+      position: absolute;
+      right: -20px; top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 120px;
+      color: rgba(245,197,24,0.06);
+      letter-spacing: 0.05em;
+      pointer-events: none;
+      line-height: 1;
+    }
+    [dir="rtl"] .cv-header::before { right: auto; left: -20px; }
+    .cv-header::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #B22234 0%, #B22234 33%, #F5C518 33%, #F5C518 66%, #006847 66%, #006847 100%);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      position: relative;
+      z-index: 1;
+    }
+    [dir="rtl"] .header-inner { flex-direction: row-reverse; }
+
+    .header-photo {
+      width: 105px; height: 105px;
+      border-radius: 50%;
+      border: 3px solid #F5C518;
+      object-fit: cover;
+      object-position: top center;
+      flex-shrink: 0;
+      box-shadow: 0 0 30px rgba(245,197,24,0.3);
+    }
+
+    .header-text { flex: 1; }
+    [dir="rtl"] .header-text { text-align: right; }
+
+    .header-badge {
+      display: inline-block;
+      background: rgba(245,197,24,0.12);
+      border: 1px solid rgba(245,197,24,0.35);
+      color: #F5C518;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 7px;
+    }
+
+    .header-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 46px;
+      line-height: 0.95;
+      color: #fff;
+      letter-spacing: 0.03em;
+      margin-bottom: 6px;
+    }
+    .header-name span { color: #F5C518; }
+    [dir="rtl"] .header-name {
+      font-family: 'Cairo', sans-serif;
+      font-size: 32px;
+      line-height: 1.2;
+    }
+
+    .header-position {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 13px;
+    }
+    [dir="rtl"] .header-position { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
+
+    .header-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 16px;
+    }
+    [dir="rtl"] .header-contact { flex-direction: row-reverse; }
+    .header-contact a, .header-contact span {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.72);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      letter-spacing: 0.04em;
+    }
+    [dir="rtl"] .header-contact a, [dir="rtl"] .header-contact span { flex-direction: row-reverse; }
+    .header-contact svg { width: 11px; height: 11px; fill: #F5C518; flex-shrink: 0; }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: #F5C518;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 10px 40px;
+    }
+    [dir="rtl"] .stats-bar { flex-direction: row-reverse; }
+    .stat-item { text-align: center; flex: 1; }
+    .stat-item + .stat-item { border-left: 1px solid rgba(0,0,0,0.12); }
+    [dir="rtl"] .stat-item + .stat-item { border-left: none; border-right: 1px solid rgba(0,0,0,0.12); }
+    .s-value {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 21px;
+      color: #0a0f1e;
+      line-height: 1;
+      letter-spacing: 0.05em;
+    }
+    .s-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(10,15,30,0.6);
+      margin-top: 2px;
+    }
+    [dir="rtl"] .s-label { font-family: 'Cairo', sans-serif; letter-spacing: 0; font-size: 0.55rem; }
+
+    /* ── BODY ── */
+    .cv-body {
+      display: grid;
+      grid-template-columns: 62% 38%;
+      min-height: calc(297mm - 165px);
+    }
+    [dir="rtl"] .cv-body { grid-template-columns: 38% 62%; }
+
+    .col-left {
+      padding: 26px 30px 26px 40px;
+      border-right: 1px solid #eaeaea;
+    }
+    [dir="rtl"] .col-left {
+      padding: 26px 40px 26px 30px;
+      border-right: none;
+      border-left: 1px solid #eaeaea;
+      order: 2;
+    }
+
+    .col-right {
+      padding: 26px 32px 26px 26px;
+      background: #f8f9fc;
+    }
+    [dir="rtl"] .col-right {
+      padding: 26px 26px 26px 32px;
+      order: 1;
+    }
+
+    /* ── Section heading ── */
+    .sec-heading {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 13px;
+    }
+    [dir="rtl"] .sec-heading { flex-direction: row-reverse; }
+    .sec-heading .bar {
+      width: 4px; height: 18px;
+      background: linear-gradient(180deg, #F5C518, #E63946);
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .sec-heading h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #0a0f1e;
+    }
+    [dir="rtl"] .sec-heading h2 { font-family: 'Cairo', sans-serif; letter-spacing: 0; font-size: 0.8rem; }
+
+    .section-block { margin-bottom: 20px; }
+
+    /* ── Profile ── */
+    .profile-text {
+      font-size: 0.74rem;
+      line-height: 1.85;
+      color: #3D4A60;
+    }
+    .profile-text strong { color: #0a0f1e; font-weight: 700; }
+    [dir="rtl"] .profile-text { font-family: 'Cairo', sans-serif; font-size: 0.82rem; text-align: right; }
+
+    /* ── Experience ── */
+    .exp-item { margin-bottom: 13px; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3px;
+    }
+    [dir="rtl"] .exp-header { flex-direction: row-reverse; }
+    .exp-role {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #0a0f1e;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    [dir="rtl"] .exp-role { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
+    .exp-date {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #F5C518;
+      background: rgba(245,197,24,0.1);
+      border: 1px solid rgba(245,197,24,0.3);
+      padding: 2px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+      margin-left: 6px;
+      flex-shrink: 0;
+    }
+    [dir="rtl"] .exp-date { margin-left: 0; margin-right: 6px; }
+    .exp-club {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #E63946;
+      margin-bottom: 4px;
+    }
+    [dir="rtl"] .exp-club { text-align: right; font-family: 'Cairo', sans-serif; }
+    .exp-desc {
+      font-size: 0.68rem;
+      color: #5A6680;
+      line-height: 1.75;
+    }
+    .exp-desc li { margin-left: 14px; margin-bottom: 2px; }
+    [dir="rtl"] .exp-desc { text-align: right; font-family: 'Cairo', sans-serif; font-size: 0.75rem; }
+    [dir="rtl"] .exp-desc li { margin-left: 0; margin-right: 14px; }
+
+    /* ── Trophies ── */
+    .trophy-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .trophy-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-size: 0.7rem;
+      color: #3D4A60;
+      line-height: 1.55;
+    }
+    [dir="rtl"] .trophy-list li { flex-direction: row-reverse; text-align: right; font-family: 'Cairo', sans-serif; font-size: 0.78rem; }
+    .medal {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .medal-gold   { background: linear-gradient(135deg, #F5C518, #C9A000); }
+    .medal-silver { background: linear-gradient(135deg, #a8a8a8, #6e6e6e); }
+    .medal-bronze { background: linear-gradient(135deg, #cd7f32, #a05a20); }
+    .trophy-list li strong { color: #0a0f1e; font-weight: 700; }
+
+    /* ── Skills ── */
+    .skill-item { margin-bottom: 8px; }
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: #0a0f1e;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    [dir="rtl"] .skill-label { flex-direction: row-reverse; font-family: 'Cairo', sans-serif; letter-spacing: 0; font-size: 0.72rem; }
+    .skill-label span:last-child { color: #F5C518; }
+    .skill-bar { height: 5px; background: #e0e4f0; border-radius: 10px; overflow: hidden; }
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #F5C518, #E63946);
+    }
+    [dir="rtl"] .skill-bar-fill {
+      background: linear-gradient(270deg, #F5C518, #E63946);
+      margin-left: auto;
+    }
+
+    /* ── Info rows ── */
+    .info-grid { display: flex; flex-direction: column; gap: 6px; }
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 10px;
+      background: #fff;
+      border-radius: 6px;
+      border-left: 3px solid #F5C518;
+    }
+    [dir="rtl"] .info-row { flex-direction: row-reverse; border-left: none; border-right: 3px solid #F5C518; }
+    .info-key {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #8892A4;
+    }
+    [dir="rtl"] .info-key { font-family: 'Cairo', sans-serif; letter-spacing: 0; font-size: 0.65rem; }
+    .info-val {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #0a0f1e;
+      text-align: right;
+    }
+    [dir="rtl"] .info-val { text-align: left; font-family: 'Cairo', sans-serif; font-size: 0.75rem; }
+
+    /* ── Highlight box ── */
+    .highlight-box {
+      background: linear-gradient(135deg, #0a0f1e, #1D3557);
+      border-radius: 10px;
+      padding: 13px 15px;
+      margin-top: 6px;
+      position: relative;
+      overflow: hidden;
+    }
+    .highlight-box::before {
+      content: '26';
+      position: absolute;
+      right: -8px; bottom: -10px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      color: rgba(245,197,24,0.07);
+      line-height: 1;
+      pointer-events: none;
+    }
+    [dir="rtl"] .highlight-box::before { right: auto; left: -8px; }
+    .highlight-box p {
+      font-size: 0.69rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.8);
+      position: relative;
+      z-index: 1;
+    }
+    .highlight-box p strong { color: #F5C518; }
+    [dir="rtl"] .highlight-box p { font-family: 'Cairo', sans-serif; font-size: 0.78rem; text-align: right; }
+
+    /* ── Social ── */
+    .social-list { display: flex; flex-direction: column; gap: 6px; }
+    .social-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.67rem;
+      font-weight: 600;
+      color: #3D4A60;
+      padding: 4px 0;
+    }
+    [dir="rtl"] .social-item { flex-direction: row-reverse; font-family: 'Cairo', sans-serif; font-size: 0.75rem; }
+    .social-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .social-icon.ig   { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+    .social-icon.wa   { background: #25D366; }
+    .social-icon.mail { background: linear-gradient(135deg, #1D3557, #F5C518); }
+    .social-icon svg  { width: 11px; height: 11px; fill: #fff; }
+
+    .divider { height: 1px; background: #eaeaea; margin: 14px 0; }
+
+    /* ── Cert section ── */
+    .cert-section {
+      background: #fff;
+      border: 1px solid #eaeaea;
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    [dir="rtl"] .cert-section { flex-direction: row-reverse; }
+    .cert-icon {
+      width: 30px; height: 30px;
+      background: linear-gradient(135deg, #F5C518, #C9A000);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cert-icon svg { width: 14px; height: 14px; fill: #fff; }
+    .cert-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #0a0f1e;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .cert-sub { font-size: 0.58rem; color: #8892A4; margin-top: 1px; }
+    [dir="rtl"] .cert-title { font-family: 'Cairo', sans-serif; letter-spacing: 0; font-size: 0.72rem; }
+    [dir="rtl"] .cert-sub   { font-family: 'Cairo', sans-serif; font-size: 0.65rem; text-align: right; }
+
+    /* ── CV Footer ── */
+    .cv-footer {
+      background: #0a0f1e;
+      padding: 7px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    [dir="rtl"] .cv-footer { flex-direction: row-reverse; }
+    .cv-footer span {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.32);
+    }
+    .cv-footer .gold { color: #F5C518; }
+
+    /* ── PRINT ── */
+    @media print {
+      html { background: none; padding: 0; display: block; }
+      .print-bar { display: none !important; }
+      .page { width: 210mm; min-height: 297mm; box-shadow: none; border-radius: 0; margin: 0; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Print bar (screen only) -->
+  <div class="print-bar">
+    <a href="index.html" class="btn-back" id="btnBack">
+      <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      <span id="backLabel">Back</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="lang-badge" id="langBadge">🌐 EN</div>
+      <span id="previewLabel">CV Preview — Mohamed Osama Gariba</span>
+    </div>
+    <button class="btn-save" onclick="window.print()" id="btnDownload">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+      <span id="downloadLabel">Download PDF</span>
+    </button>
+  </div>
+
+  <!-- A4 Page -->
+  <div class="page" id="cvPage">
+
+    <!-- HEADER -->
+    <div class="cv-header">
+      <div class="header-inner">
+        <img src="foto/4.webp" onerror="this.onerror=null;this.src='foto/4_small.jpeg'" alt="Mohamed Osama" class="header-photo">
+        <div class="header-text">
+          <div class="header-badge" id="cvBadge">⚽ Football Player Profile · 2026</div>
+          <div class="header-name" id="cvName">MOHAMED<br><span>OSAMA</span> GARIBA</div>
+          <div class="header-position" id="cvPosition">U17 Striker · Winger · Free Striker · Libya 🇱🇾</div>
+          <div class="header-contact">
+            <span>
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+              <span id="cvCity">Jakarta, Indonesia</span>
+            </span>
+            <a href="https://instagram.com/Mohammad_ghariba">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              @Mohammad_ghariba
+            </a>
+            <a href="https://wa.me/1234567890">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              +62 123 4567 890
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="s-value">165 CM</div>
+        <div class="s-label" id="sHeight">Height</div>
+      </div>
+      <div class="stat-item">
+        <div class="s-value">50 KG</div>
+        <div class="s-label" id="sWeight">Weight</div>
+      </div>
+      <div class="stat-item">
+        <div class="s-value" id="sFoot">RIGHT</div>
+        <div class="s-label" id="sFootLabel">Dom. Foot</div>
+      </div>
+      <div class="stat-item">
+        <div class="s-value">U17</div>
+        <div class="s-label" id="sAge">Age Group</div>
+      </div>
+      <div class="stat-item">
+        <div class="s-value">9×</div>
+        <div class="s-label" id="sPotm">Player of Match</div>
+      </div>
+      <div class="stat-item">
+        <div class="s-value">3</div>
+        <div class="s-label" id="sTitles">Major Titles</div>
+      </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="cv-body">
+
+      <!-- LEFT COLUMN -->
+      <div class="col-left">
+
+        <div class="section-block">
+          <div class="sec-heading"><div class="bar"></div><h2 id="secProfile">Player Profile</h2></div>
+          <p class="profile-text" id="profileText">
+            A dynamic and composed <strong>U17 forward</strong> from Libya, trained under the prestigious
+            <strong>Borussia Mönchengladbach Academy Indonesia</strong> system. Mohamed Osama Gariba
+            combines raw pace, intelligent off-the-ball movement, and clinical finishing to create constant
+            danger in the opposition's penalty area. Equally effective as a central striker, wide winger,
+            or roaming free striker, he brings a versatile and modern attacking profile to any squad.
+            A proven winner who has delivered in high-pressure tournaments — <strong>WE ARE 26.</strong>
+          </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section-block">
+          <div class="sec-heading"><div class="bar"></div><h2 id="secExperience">Club Experience</h2></div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-role" id="expRole1">Youth Player — Forward</div>
+              <div class="exp-date">2023 – Present</div>
+            </div>
+            <div class="exp-club">⚫ Borussia Mönchengladbach Academy Indonesia</div>
+            <ul class="exp-desc" id="expDesc1">
+              <li>Training under European-style tactical methodology</li>
+              <li>Regular starter in U17 competitive fixtures</li>
+              <li>Top scorer across multiple tournament campaigns</li>
+              <li>Awarded Best Striker by coaching staff</li>
+            </ul>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-role" id="expRole2">Tournament Campaigns</div>
+              <div class="exp-date">2024 – 2025</div>
+            </div>
+            <div class="exp-club" id="expClub2">🏆 National &amp; Regional Competitions</div>
+            <ul class="exp-desc" id="expDesc2">
+              <li>ISCO Cup U17 — Champion &amp; Top Scorer</li>
+              <li>Askot PSSI Tangerang Selatan 2024/25 — Champion</li>
+              <li>Bali 7s — Runner-Up</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section-block">
+          <div class="sec-heading"><div class="bar"></div><h2 id="secHonours">Honours &amp; Awards</h2></div>
+          <ul class="trophy-list" id="trophyList">
+            <li><div class="medal medal-gold">🥇</div><div><strong id="t1">Champion</strong> — ISCO Cup U17</div></li>
+            <li><div class="medal medal-gold">🥇</div><div><strong id="t2">Champion</strong> — Askot PSSI Tangerang Selatan 2024/2025</div></li>
+            <li><div class="medal medal-silver">🥈</div><div><strong id="t3">Runner-Up</strong> — Bali 7s</div></li>
+            <li><div class="medal medal-gold">⚽</div><div><strong id="t4">Top Scorer</strong> — ISCO Cup U17</div></li>
+            <li><div class="medal medal-gold">🌟</div><div><strong id="t5">Best Striker Award</strong></div></li>
+            <li><div class="medal medal-bronze">🏅</div><div><strong>9×</strong> <span id="t6">Player of the Match</span></div></li>
+            <li><div class="medal medal-bronze">🏅</div><div><strong>8×</strong> <span id="t7">Man of the Match</span></div></li>
+          </ul>
+        </div>
+
+        <div class="highlight-box">
+          <p id="careerObj">
+            <strong>Career Objective:</strong> To represent Libya at international youth level and
+            continue developing within a professional European or Asian elite academy. Aspiring to debut
+            in professional football by <strong>2026</strong> — <strong>WE ARE 26.</strong>
+          </p>
+        </div>
+
+      </div><!-- end col-left -->
+
+      <!-- RIGHT COLUMN -->
+      <div class="col-right">
+
+        <div class="section-block">
+          <div class="sec-heading"><div class="bar"></div><h2 id="secPersonal">Personal Info</h2></div>
+          <div class="info-grid">
+            <div class="info-row"><span class="info-key" id="iFullName">Full Name</span><span class="info-val">Mohamed Osama<br>Mohamed Gariba</span></div>
+            <div class="info-row"><span class="info-key" id="iNat">Nationality</span><span class="info-val">🇱🇾 Libya</span></div>
+            <div class="info-row"><span class="info-key" id="iBase">Base</span><span class="info-val">Jakarta, Indonesia</span></div>
+            <div class="info-row"><span class="info-key" id="iPos">Position</span><span class="info-val" id="iPosVal">Striker / Winger / Free Striker</span></div>
+            <div class="info-row"><span class="info-key" id="iFoot">Dom. Foot</span><span class="info-val" id="iFootVal">Right Foot</span></div>
+            <div class="info-row"><span class="info-key" id="iHeight">Height</span><span class="info-val">165 cm</span></div>
+            <div class="info-row"><span class="info-key" id="iWeight">Weight</span><span class="info-val">50 kg</span></div>
+            <div class="info-row"><span class="info-key" id="iAge">Age Group</span><span class="info-val">U17</span></div>
+            <div class="info-row"><span class="info-key" id="iLang">Languages</span><span class="info-val" id="iLangVal">Arabic · Indonesian · English</span></div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section-block">
+          <div class="sec-heading"><div class="bar"></div><h2 id="secSkills">Playing Attributes</h2></div>
+          <div class="skill-item"><div class="skill-label"><span id="sk1">Finishing</span><span>93</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:93%"></div></div></div>
+          <div class="skill-item"><div class="skill-label"><span id="sk2">Pace / Acceleration</span><span>90</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:90%"></div></div></div>
+          <div class="skill-item"><div class="skill-label"><span id="sk3">Dribbling</span><span>87</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:87%"></div></div></div>
+          <div class="skill-item"><div class="skill-label"><span id="sk4">Movement / Runs</span><span>88</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:88%"></div></div></div>
+          <div class="skill-item"><div class="skill-label"><span id="sk5">Positioning</span><span>85</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+          <div class="skill-item"><div class="skill-label"><span id="sk6">Shot Power</span><span>82</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:82%"></div></div></div>
+          <div class="skill-item"><div class="skill-label"><span id="sk7">Mentality</span><span>89</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:89%"></div></div></div>
+          <div class="skill-item"><div class="skill-label"><span id="sk8">Work Rate</span><span>86</span></div><div class="skill-bar"><div class="skill-bar-fill" style="width:86%"></div></div></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section-block">
+          <div class="sec-heading"><div class="bar"></div><h2 id="secClub">Current Club</h2></div>
+          <div class="cert-section">
+            <div class="cert-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4.18L18 8v5c0 3.5-2.33 6.79-6 7.93C8.33 19.79 6 16.5 6 13V8l6-2.82z"/></svg></div>
+            <div>
+              <div class="cert-title">Borussia Mönchengladbach</div>
+              <div class="cert-sub" id="certSub">Academy Indonesia · U17 Squad · 2023–Present</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section-block">
+          <div class="sec-heading"><div class="bar"></div><h2 id="secContact">Contact</h2></div>
+          <div class="social-list">
+            <div class="social-item">
+              <div class="social-icon ig"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></div>
+              @Mohammad_ghariba
+            </div>
+            <div class="social-item">
+              <div class="social-icon wa"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+              +62 123 4567 890
+            </div>
+            <div class="social-item">
+              <div class="social-icon mail"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+              email@example.com
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end col-right -->
+    </div><!-- end cv-body -->
+
+    <!-- FOOTER -->
+    <div class="cv-footer">
+      <span id="cvFooterName">Mohamed Osama Gariba — Football Player CV</span>
+      <span class="gold">WE ARE 26 · UNITED 2026</span>
+      <span>Borussia Mönchengladbach Academy Indonesia</span>
+    </div>
+
+  </div><!-- end .page -->
+
+  <script>
+  // ── TRANSLATIONS for CV ──
+  const cvT = {
+    id: {
+      htmlLang: 'id', dir: 'ltr',
+      langBadge: '🇮🇩 ID',
+      backLabel: 'Kembali ke Website',
+      previewLabel: 'Preview CV — Mohamed Osama Gariba',
+      downloadLabel: 'Download PDF',
+      badge: '⚽ Profil Pemain Sepak Bola · 2026',
+      position: 'Penyerang U17 · Winger · Free Striker · Libya 🇱🇾',
+      city: 'Jakarta, Indonesia',
+      sHeight: 'Tinggi Badan', sWeight: 'Berat Badan', sFoot: 'KANAN',
+      sFootLabel: 'Kaki Dominan', sAge: 'Kelompok Umur',
+      sPotm: 'Pemain Terbaik', sTitles: 'Gelar Utama',
+      secProfile: 'Profil Pemain', secExperience: 'Pengalaman Klub',
+      secHonours: 'Penghargaan & Trofi', secPersonal: 'Data Pribadi',
+      secSkills: 'Atribut Permainan', secClub: 'Klub Saat Ini', secContact: 'Kontak',
+      profileText: `Penyerang U17 yang dinamis dan tenang dari Libya, dilatih dalam sistem bergaya Eropa bersama <strong>Borussia Mönchengladbach Academy Indonesia</strong>. Mohamed Osama Gariba memadukan kecepatan murni, pergerakan cerdas tanpa bola, dan penyelesaian akhir yang klinis. Efektif sebagai striker murni, winger, maupun free striker — pemain serbaguna dengan mentalitas juara. <strong>WE ARE 26.</strong>`,
+      expRole1: 'Pemain Muda — Penyerang',
+      expDesc1: ['Berlatih di bawah metodologi taktis bergaya Eropa', 'Starter reguler di kompetisi U17', 'Top skor di berbagai kampanye turnamen', 'Dinobatkan sebagai Striker Terbaik oleh staf pelatih'],
+      expRole2: 'Kampanye Turnamen',
+      expClub2: '🏆 Kompetisi Nasional & Regional',
+      expDesc2: ['ISCO Cup U17 — Juara & Top Skor', 'Askot PSSI Tangerang Selatan 2024/25 — Juara', 'Bali 7s — Runner-Up'],
+      t1: 'Juara 1', t2: 'Juara 1', t3: 'Runner-Up', t4: 'Top Skor',
+      t5: 'Penghargaan Striker Terbaik', t6: 'Pemain Terbaik dalam Pertandingan', t7: 'Man of the Match',
+      careerObj: `<strong>Tujuan Karier:</strong> Mewakili Libya di level internasional muda dan terus berkembang di akademi elite Eropa atau Asia. Bercita-cita tampil profesional pada tahun <strong>2026</strong> — <strong>WE ARE 26.</strong>`,
+      iFullName: 'Nama Lengkap', iNat: 'Kebangsaan', iBase: 'Domisili',
+      iPos: 'Posisi', iPosVal: 'Striker / Winger / Free Striker',
+      iFoot: 'Kaki Dominan', iFootVal: 'Kaki Kanan',
+      iHeight: 'Tinggi', iWeight: 'Berat', iAge: 'Kelompok Umur',
+      iLang: 'Bahasa', iLangVal: 'Arab · Indonesia · Inggris (Dasar)',
+      certSub: 'Academy Indonesia · Tim U17 · 2023–Kini',
+      sk1: 'Penyelesaian Akhir', sk2: 'Kecepatan / Akselerasi', sk3: 'Dribbling',
+      sk4: 'Pergerakan / Lari', sk5: 'Posisi', sk6: 'Tendangan Keras',
+      sk7: 'Mentalitas', sk8: 'Daya Kerja',
+      footerName: 'Mohamed Osama Gariba — CV Pemain Sepak Bola'
+    },
+    en: {
+      htmlLang: 'en', dir: 'ltr',
+      langBadge: '🇬🇧 EN',
+      backLabel: 'Back to Website',
+      previewLabel: 'CV Preview — Mohamed Osama Gariba',
+      downloadLabel: 'Download PDF',
+      badge: '⚽ Football Player Profile · 2026',
+      position: 'U17 Striker · Winger · Free Striker · Libya 🇱🇾',
+      city: 'Jakarta, Indonesia',
+      sHeight: 'Height', sWeight: 'Weight', sFoot: 'RIGHT',
+      sFootLabel: 'Dom. Foot', sAge: 'Age Group',
+      sPotm: 'Player of Match', sTitles: 'Major Titles',
+      secProfile: 'Player Profile', secExperience: 'Club Experience',
+      secHonours: 'Honours & Awards', secPersonal: 'Personal Info',
+      secSkills: 'Playing Attributes', secClub: 'Current Club', secContact: 'Contact',
+      profileText: `A dynamic and composed <strong>U17 forward</strong> from Libya, trained under the prestigious <strong>Borussia Mönchengladbach Academy Indonesia</strong> system. Mohamed Osama Gariba combines raw pace, intelligent off-the-ball movement, and clinical finishing to create constant danger. Equally effective as a central striker, winger, or roaming free striker — a proven winner. <strong>WE ARE 26.</strong>`,
+      expRole1: 'Youth Player — Forward',
+      expDesc1: ['Training under European-style tactical methodology', 'Regular starter in U17 competitive fixtures', 'Top scorer across multiple tournament campaigns', 'Awarded Best Striker by coaching staff'],
+      expRole2: 'Tournament Campaigns',
+      expClub2: '🏆 National & Regional Competitions',
+      expDesc2: ['ISCO Cup U17 — Champion & Top Scorer', 'Askot PSSI Tangerang Selatan 2024/25 — Champion', 'Bali 7s — Runner-Up'],
+      t1: 'Champion', t2: 'Champion', t3: 'Runner-Up', t4: 'Top Scorer',
+      t5: 'Best Striker Award', t6: 'Player of the Match', t7: 'Man of the Match',
+      careerObj: `<strong>Career Objective:</strong> To represent Libya at international youth level and continue developing within a professional European or Asian elite academy. Aspiring to debut in professional football by <strong>2026</strong> — <strong>WE ARE 26.</strong>`,
+      iFullName: 'Full Name', iNat: 'Nationality', iBase: 'Base',
+      iPos: 'Position', iPosVal: 'Striker / Winger / Free Striker',
+      iFoot: 'Dom. Foot', iFootVal: 'Right Foot',
+      iHeight: 'Height', iWeight: 'Weight', iAge: 'Age Group',
+      iLang: 'Languages', iLangVal: 'Arabic · Indonesian · English',
+      certSub: 'Academy Indonesia · U17 Squad · 2023–Present',
+      sk1: 'Finishing', sk2: 'Pace / Acceleration', sk3: 'Dribbling',
+      sk4: 'Movement / Runs', sk5: 'Positioning', sk6: 'Shot Power',
+      sk7: 'Mentality', sk8: 'Work Rate',
+      footerName: 'Mohamed Osama Gariba — Football Player CV'
+    },
+    ar: {
+      htmlLang: 'ar', dir: 'rtl',
+      langBadge: '🇸🇦 AR',
+      backLabel: 'العودة للموقع',
+      previewLabel: 'معاينة السيرة الذاتية — محمد أسامة جريبة',
+      downloadLabel: 'تحميل PDF',
+      badge: '⚽ ملف اللاعب الكروي · 2026',
+      position: 'مهاجم تحت 17 · جناح · مهاجم حر · ليبيا 🇱🇾',
+      city: 'جاكرتا، إندونيسيا',
+      sHeight: 'الطول', sWeight: 'الوزن', sFoot: 'اليمنى',
+      sFootLabel: 'القدم المفضلة', sAge: 'الفئة العمرية',
+      sPotm: 'أفضل لاعب', sTitles: 'الألقاب الكبرى',
+      secProfile: 'ملف اللاعب', secExperience: 'الخبرة النادية',
+      secHonours: 'الجوائز والألقاب', secPersonal: 'المعلومات الشخصية',
+      secSkills: 'صفات اللعب', secClub: 'النادي الحالي', secContact: 'التواصل',
+      profileText: `مهاجم <strong>تحت 17 سنة</strong> ديناميكي وهادئ من ليبيا، تلقّى تدريبه في منظومة أكاديمية <strong>بوروسيا مونشنغلادباخ إندونيسيا</strong> المرموقة. يجمع محمد أسامة جريبة بين السرعة الخام والحركة الذكية بدون كرة والإنهاء الحاسم. يؤدي دوره بكفاءة عالية كمهاجم صريح أو جناح أو مهاجم حر — فائز مثبت. <strong>نحن 26.</strong>`,
+      expRole1: 'لاعب شاب — مهاجم',
+      expDesc1: ['التدريب تحت المنهجية التكتيكية الأوروبية', 'مشارك أساسي في المباريات التنافسية تحت 17', 'هداف البطولة في عدة حملات', 'حصل على لقب أفضل مهاجم من طاقم التدريب'],
+      expRole2: 'الحملات البطولية',
+      expClub2: '🏆 المسابقات الوطنية والإقليمية',
+      expDesc2: ['كأس ISCO تحت 17 — بطل وهداف', 'Askot PSSI تانجيرانج سيلاتان 2024/25 — بطل', 'بالي 7s — وصيف'],
+      t1: 'بطل', t2: 'بطل', t3: 'وصيف', t4: 'هداف البطولة',
+      t5: 'جائزة أفضل مهاجم', t6: 'أفضل لاعب في المباراة', t7: 'رجل المباراة',
+      careerObj: `<strong>الهدف المهني:</strong> تمثيل ليبيا على المستوى الدولي للشباب والاستمرار في التطور ضمن أكاديمية نخبوية أوروبية أو آسيوية. يطمح للاحتراف بحلول عام <strong>2026</strong> — <strong>نحن 26.</strong>`,
+      iFullName: 'الاسم الكامل', iNat: 'الجنسية', iBase: 'مقر الإقامة',
+      iPos: 'المركز', iPosVal: 'مهاجم / جناح / مهاجم حر',
+      iFoot: 'القدم المفضلة', iFootVal: 'القدم اليمنى',
+      iHeight: 'الطول', iWeight: 'الوزن', iAge: 'الفئة العمرية',
+      iLang: 'اللغات', iLangVal: 'العربية · الإندونيسية · الإنجليزية',
+      certSub: 'أكاديمية إندونيسيا · فريق تحت 17 · 2023–الآن',
+      sk1: 'الإنهاء', sk2: 'السرعة / التسارع', sk3: 'المراوغة',
+      sk4: 'الحركة / الجري', sk5: 'التمركز', sk6: 'قوة التسديد',
+      sk7: 'الذهنية', sk8: 'معدل العمل',
+      footerName: 'محمد أسامة جريبة — السيرة الذاتية لاعب كرة القدم'
+    }
+  };
+
+  // ── Apply translations ──
+  function applyLang(lang) {
+    const t = cvT[lang] || cvT['en'];
+
+    // HTML dir & lang
+    document.documentElement.lang = t.htmlLang;
+    document.documentElement.dir  = t.dir;
+    document.body.dir = t.dir;
+
+    // Print bar
+    document.getElementById('langBadge').textContent    = t.langBadge;
+    document.getElementById('backLabel').textContent    = t.backLabel;
+    document.getElementById('previewLabel').textContent = t.previewLabel;
+    document.getElementById('downloadLabel').textContent = t.downloadLabel;
+
+    // Header
+    document.getElementById('cvBadge').textContent    = t.badge;
+    document.getElementById('cvPosition').textContent = t.position;
+    document.getElementById('cvCity').textContent     = t.city;
+
+    // Stats bar
+    document.getElementById('sHeight').textContent    = t.sHeight;
+    document.getElementById('sWeight').textContent    = t.sWeight;
+    document.getElementById('sFoot').textContent      = t.sFoot;
+    document.getElementById('sFootLabel').textContent = t.sFootLabel;
+    document.getElementById('sAge').textContent       = t.sAge;
+    document.getElementById('sPotm').textContent      = t.sPotm;
+    document.getElementById('sTitles').textContent    = t.sTitles;
+
+    // Section headings
+    document.getElementById('secProfile').textContent    = t.secProfile;
+    document.getElementById('secExperience').textContent = t.secExperience;
+    document.getElementById('secHonours').textContent    = t.secHonours;
+    document.getElementById('secPersonal').textContent   = t.secPersonal;
+    document.getElementById('secSkills').textContent     = t.secSkills;
+    document.getElementById('secClub').textContent       = t.secClub;
+    document.getElementById('secContact').textContent    = t.secContact;
+
+    // Profile
+    document.getElementById('profileText').innerHTML = t.profileText;
+
+    // Experience
+    document.getElementById('expRole1').textContent = t.expRole1;
+    document.getElementById('expDesc1').innerHTML   = t.expDesc1.map(x => `<li>${x}</li>`).join('');
+    document.getElementById('expRole2').textContent = t.expRole2;
+    document.getElementById('expClub2').textContent = t.expClub2;
+    document.getElementById('expDesc2').innerHTML   = t.expDesc2.map(x => `<li>${x}</li>`).join('');
+
+    // Trophies
+    document.getElementById('t1').textContent = t.t1;
+    document.getElementById('t2').textContent = t.t2;
+    document.getElementById('t3').textContent = t.t3;
+    document.getElementById('t4').textContent = t.t4;
+    document.getElementById('t5').textContent = t.t5;
+    document.getElementById('t6').textContent = t.t6;
+    document.getElementById('t7').textContent = t.t7;
+
+    // Career obj
+    document.getElementById('careerObj').innerHTML = t.careerObj;
+
+    // Personal info
+    document.getElementById('iFullName').textContent = t.iFullName;
+    document.getElementById('iNat').textContent      = t.iNat;
+    document.getElementById('iBase').textContent     = t.iBase;
+    document.getElementById('iPos').textContent      = t.iPos;
+    document.getElementById('iPosVal').textContent   = t.iPosVal;
+    document.getElementById('iFoot').textContent     = t.iFoot;
+    document.getElementById('iFootVal').textContent  = t.iFootVal;
+    document.getElementById('iHeight').textContent   = t.iHeight;
+    document.getElementById('iWeight').textContent   = t.iWeight;
+    document.getElementById('iAge').textContent      = t.iAge;
+    document.getElementById('iLang').textContent     = t.iLang;
+    document.getElementById('iLangVal').textContent  = t.iLangVal;
+
+    // Skills
+    document.getElementById('sk1').textContent = t.sk1;
+    document.getElementById('sk2').textContent = t.sk2;
+    document.getElementById('sk3').textContent = t.sk3;
+    document.getElementById('sk4').textContent = t.sk4;
+    document.getElementById('sk5').textContent = t.sk5;
+    document.getElementById('sk6').textContent = t.sk6;
+    document.getElementById('sk7').textContent = t.sk7;
+    document.getElementById('sk8').textContent = t.sk8;
+
+    // Cert & footer
+    document.getElementById('certSub').textContent     = t.certSub;
+    document.getElementById('cvFooterName').textContent = t.footerName;
+  }
+
+  // ── Detect language from URL param, then localStorage fallback ──
+  const urlParams = new URLSearchParams(window.location.search);
+  const langParam = urlParams.get('lang');
+  const validLangs = ['id', 'en', 'ar'];
+  const lang = validLangs.includes(langParam)
+    ? langParam
+    : (validLangs.includes(localStorage.getItem('preferredLang'))
+        ? localStorage.getItem('preferredLang')
+        : 'en');
+
+  applyLang(lang);
+  </script>
+
+</body>
+</html>

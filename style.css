@@ -430,6 +430,135 @@ body.light-mode .navbar {
   transform: translateY(-3px);
 }
 
+/* Download CV button — hero */
+.btn-download {
+  background: transparent;
+  color: var(--fifa-gold);
+  border: 2px solid var(--fifa-gold);
+  position: relative;
+  overflow: hidden;
+}
+.btn-download::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--fifa-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+  z-index: 0;
+}
+.btn-download:hover::before { transform: scaleX(1); }
+.btn-download:hover { color: var(--fifa-navy); transform: translateY(-3px); box-shadow: var(--glow-gold); }
+.btn-download i,
+.btn-download span { position: relative; z-index: 1; }
+
+/* ── Big Download CV card (footer) ── */
+.download-cv-section {
+  margin: 0 auto 3rem;
+  max-width: 560px;
+}
+
+.btn-cv-download {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, rgba(245,197,24,0.08) 0%, rgba(245,197,24,0.03) 100%);
+  border: 2px solid var(--fifa-gold);
+  border-radius: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.btn-cv-download::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--fifa-gold), var(--fifa-gold-dark));
+  opacity: 0;
+  transition: opacity var(--transition);
+  z-index: 0;
+}
+.btn-cv-download:hover::before { opacity: 1; }
+.btn-cv-download:hover { transform: translateY(-4px); box-shadow: var(--glow-gold); }
+.btn-cv-download:hover .cv-btn-icon,
+.btn-cv-download:hover .cv-btn-text,
+.btn-cv-download:hover .cv-btn-arrow { color: var(--fifa-navy) !important; }
+
+.cv-btn-icon {
+  position: relative;
+  z-index: 1;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--fifa-gold), var(--fifa-gold-dark));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--fifa-navy);
+  flex-shrink: 0;
+  transition: all var(--transition);
+  box-shadow: 0 4px 16px rgba(245,197,24,0.3);
+}
+.btn-cv-download:hover .cv-btn-icon {
+  background: var(--fifa-navy);
+  color: var(--fifa-gold) !important;
+}
+
+.cv-btn-text {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  text-align: left;
+  transition: color var(--transition);
+}
+.cv-btn-label {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fifa-white);
+  margin-bottom: 3px;
+  transition: color var(--transition);
+}
+.cv-btn-sub {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--fifa-gray);
+  transition: color var(--transition);
+}
+
+.cv-btn-arrow {
+  position: relative;
+  z-index: 1;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(245,197,24,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fifa-gold);
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: all var(--transition);
+  animation: bounceDown 1.5s ease-in-out infinite;
+}
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+.btn-cv-download:hover .cv-btn-arrow { border-color: var(--fifa-navy); animation: none; }
+
+
 /* Hero Image */
 .hero-image {
   position: relative;

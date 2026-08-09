@@ -75,6 +75,7 @@
             <p class="description" data-i18n="hero_desc">Bermain dengan ketajaman insting, kecepatan, dan mentalitas juara di setiap menit pertandingan.</p>
             <div class="cta-buttons">
                 <a href="#media"   class="btn btn-primary" data-i18n="btn_video"><i class="fas fa-play"></i> LIHAT VIDEO HIGHLIGHTS</a>
+                <a href="cv.html?lang=id" id="cvBtnHero" target="_blank" class="btn btn-download"><i class="fas fa-download"></i> <span data-i18n="btn_cv">DOWNLOAD CV</span></a>
                 <a href="#contact" class="btn btn-outline"  data-i18n="btn_contact">HUBUNGI SEKARANG</a>
             </div>
         </div>
@@ -240,7 +241,10 @@
                 <source srcset="foto/3.webp" type="image/webp">
                 <img src="foto/3.jpeg" alt="Action 1" class="gallery-img">
             </picture>
-            <img src="foto/4.jpeg" alt="Action 2" class="gallery-img">
+            <picture>
+                <source srcset="foto/4.webp" type="image/webp">
+                <img src="foto/4_small.jpeg" alt="Action 2" class="gallery-img">
+            </picture>
             <picture>
                 <source srcset="foto/5.webp" type="image/webp">
                 <img src="foto/5.jpeg" alt="Action 3" class="gallery-img">
@@ -267,6 +271,18 @@
             </a>
             <a href="https://wa.me/1234567890" target="_blank" class="contact-link">
                 <i class="fab fa-whatsapp"></i> +62 123 4567 890
+            </a>
+        </div>
+
+        <!-- Download CV Button -->
+        <div class="download-cv-section reveal">
+            <a href="cv.html?lang=id" id="cvBtnFooter" target="_blank" class="btn-cv-download">
+                <div class="cv-btn-icon"><i class="fas fa-file-pdf"></i></div>
+                <div class="cv-btn-text">
+                    <span class="cv-btn-label" data-i18n="cv_download_label">Download Professional CV</span>
+                    <span class="cv-btn-sub">PDF · A4 · Mohamed Osama Gariba</span>
+                </div>
+                <div class="cv-btn-arrow"><i class="fas fa-arrow-down"></i></div>
             </a>
         </div>
 

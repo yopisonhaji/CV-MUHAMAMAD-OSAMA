@@ -14,6 +14,7 @@ const translations = {
         hero_tagline: "LETHAL STRIKER. PROVEN WINNER.",
         hero_desc: "Bermain dengan ketajaman insting, kecepatan, dan mentalitas juara di setiap menit pertandingan.",
         btn_video: "LIHAT VIDEO HIGHLIGHTS",
+        btn_cv: "DOWNLOAD CV",
         btn_contact: "HUBUNGI SEKARANG",
         stat_position_label: "POSISI",
         stat_position_val: "Striker / Winger",
@@ -41,6 +42,7 @@ const translations = {
         footer_title_1: "READY TO WIN ",
         footer_title_2: "TOGETHER?",
         footer_desc: "Rekrut Mohamed untuk memperkuat lini serang tim Anda musim ini.",
+        cv_download_label: "Download CV Profesional",
         footer_rights: "Dirancang & Dikembangkan oleh"
     },
     en: {
@@ -53,6 +55,7 @@ const translations = {
         hero_tagline: "LETHAL STRIKER. PROVEN WINNER.",
         hero_desc: "Playing with sharp instincts, speed, and a champion's mentality in every minute of the match.",
         btn_video: "WATCH HIGHLIGHTS",
+        btn_cv: "DOWNLOAD CV",
         btn_contact: "CONTACT NOW",
         stat_position_label: "POSITION",
         stat_position_val: "Striker / Winger",
@@ -80,6 +83,7 @@ const translations = {
         footer_title_1: "READY TO WIN ",
         footer_title_2: "TOGETHER?",
         footer_desc: "Recruit Mohamed to strengthen your team's attacking line this season.",
+        cv_download_label: "Download Professional CV",
         footer_rights: "Professionally Designed & Engineered by"
     },
     ar: {
@@ -92,6 +96,7 @@ const translations = {
         hero_tagline: "مهاجم فتاك. فائز مثبت.",
         hero_desc: "اللعب بغريزة حادة وسرعة وعقلية بطل في كل دقيقة من المباراة.",
         btn_video: "شاهد أبرز اللقطات",
+        btn_cv: "تحميل السيرة الذاتية",
         btn_contact: "اتصل الآن",
         stat_position_label: "المركز",
         stat_position_val: "مهاجم / جناح",
@@ -119,6 +124,7 @@ const translations = {
         footer_title_1: "مستعدون للفوز ",
         footer_title_2: "معًا؟",
         footer_desc: "قم بتجنيد محمد لتعزيز خط هجوم فريقك هذا الموسم.",
+        cv_download_label: "تحميل السيرة الذاتية الاحترافية",
         footer_rights: "تم التصميم والتطوير باحترافية بواسطة"
     }
 };
@@ -148,6 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.innerHTML = translations[lang][key];
             }
         });
+
+        // Update CV download links to pass current language
+        const cvLinks = document.querySelectorAll('#cvBtnHero, #cvBtnFooter');
+        cvLinks.forEach(link => { link.href = `cv.html?lang=${lang}`; });
 
         localStorage.setItem('preferredLang', lang);
     };
