@@ -1,0 +1,1430 @@
+/* ============================================================
+   FIFA WORLD CUP 2026 THEME — Mohamed Osama Portfolio
+   "WE ARE 26" × "UNITED 2026"
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;800;900&family=Oswald:wght@400;600;700&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --fifa-gold:      #F5C518;
+  --fifa-gold-dark: #C9A000;
+  --fifa-red:       #E63946;
+  --fifa-blue:      #1D3557;
+  --fifa-navy:      #0A0F1E;
+  --fifa-navy-2:    #111827;
+  --fifa-navy-3:    #1a2235;
+  --fifa-white:     #F0F4FF;
+  --fifa-gray:      #8892A4;
+  --host-usa:       #B22234;   /* USA red */
+  --host-mex:       #006847;   /* Mexico green */
+  --host-can:       #FF0000;   /* Canada red */
+  --glass-bg:       rgba(255,255,255,0.05);
+  --glass-border:   rgba(245,197,24,0.2);
+  --card-bg:        rgba(17,24,39,0.9);
+  --transition:     0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --glow-gold:      0 0 30px rgba(245,197,24,0.4);
+  --glow-red:       0 0 30px rgba(230,57,70,0.4);
+  --radius-lg:      16px;
+  --radius-xl:      24px;
+}
+
+/* Light Mode */
+body.light-mode {
+  --fifa-navy:    #EEF2FF;
+  --fifa-navy-2:  #DDE4F5;
+  --fifa-navy-3:  #CDD8F0;
+  --fifa-white:   #0A0F1E;
+  --fifa-gray:    #3D4A60;
+  --card-bg:      rgba(240,244,255,0.95);
+  --glass-bg:     rgba(0,0,0,0.04);
+  --glass-border: rgba(201,160,0,0.25);
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--fifa-navy);
+  color: var(--fifa-white);
+  overflow-x: hidden;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+/* ── FIFA Background Pattern ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(245,197,24,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(230,57,70,0.05) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(29,53,87,0.3) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hexagon football pattern */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='70'%3E%3Cpolygon points='30,2 56,17 56,52 30,67 4,52 4,17' fill='none' stroke='rgba(245,197,24,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 60px 70px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── FIFA Watermark ── */
+.fifa-watermark {
+  position: fixed;
+  top: 50%;
+  right: -5%;
+  transform: translateY(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(12rem, 25vw, 22rem);
+  color: rgba(245,197,24,0.03);
+  pointer-events: none;
+  z-index: 0;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  user-select: none;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--fifa-navy-2); }
+::-webkit-scrollbar-thumb { background: var(--fifa-gold); border-radius: 10px; }
+
+/* ====================================================
+   NAVBAR
+   ==================================================== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  height: 70px;
+  background: rgba(10,15,30,0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  transition: background var(--transition);
+}
+
+body.light-mode .navbar {
+  background: rgba(238,242,255,0.88);
+}
+
+/* Navbar top accent line — tricolor */
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    var(--host-usa) 0%,
+    var(--host-usa) 33%,
+    var(--fifa-white) 33%,
+    var(--fifa-white) 34%,
+    var(--host-mex) 34%,
+    var(--host-mex) 66%,
+    var(--fifa-white) 66%,
+    var(--fifa-white) 67%,
+    var(--host-can) 67%,
+    var(--host-can) 100%
+  );
+}
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
+  color: var(--fifa-white);
+  text-transform: uppercase;
+}
+.logo span {
+  color: var(--fifa-gold);
+  margin-left: 0.3rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  color: var(--fifa-gray);
+  text-transform: uppercase;
+  position: relative;
+  transition: color var(--transition);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--fifa-gold);
+  transition: width var(--transition);
+}
+
+.nav-links a:hover { color: var(--fifa-gold); }
+.nav-links a:hover::after { width: 100%; }
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Custom Language Dropdown */
+.custom-dropdown {
+  position: relative;
+  user-select: none;
+}
+
+.dropdown-selected {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background: var(--glass-bg);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fifa-white);
+  transition: all var(--transition);
+}
+.dropdown-selected:hover { border-color: var(--fifa-gold); color: var(--fifa-gold); }
+.dropdown-selected img { width: 20px; height: auto; border-radius: 2px; }
+.dropdown-selected .fa-chevron-down { font-size: 0.65rem; transition: transform var(--transition); }
+.custom-dropdown.open .fa-chevron-down { transform: rotate(180deg); }
+
+.dropdown-options {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 100px;
+  background: var(--fifa-navy-2);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.custom-dropdown.open .dropdown-options { display: block; animation: fadeDown 0.2s ease; }
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--fifa-gray);
+  transition: all var(--transition);
+}
+.dropdown-option:hover { background: var(--glass-bg); color: var(--fifa-gold); }
+.dropdown-option img { width: 20px; height: auto; border-radius: 2px; }
+
+/* Theme Toggle */
+.theme-toggle {
+  width: 38px; height: 38px;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: var(--glass-bg);
+  color: var(--fifa-white);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition);
+}
+.theme-toggle:hover { border-color: var(--fifa-gold); color: var(--fifa-gold); transform: rotate(15deg); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  width: 38px; height: 38px;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: var(--glass-bg);
+  color: var(--fifa-white);
+  cursor: pointer;
+  align-items: center; justify-content: center;
+  font-size: 1rem;
+  transition: all var(--transition);
+}
+.hamburger:hover { border-color: var(--fifa-gold); color: var(--fifa-gold); }
+
+/* ====================================================
+   HERO SECTION
+   ==================================================== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 90px clamp(1.5rem, 6vw, 5rem) 4rem;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* WE ARE 26 diagonal ribbon */
+.hero-section::before {
+  content: 'WE ARE 26';
+  position: absolute;
+  top: 18%;
+  right: -6%;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  letter-spacing: 0.15em;
+  color: rgba(245,197,24,0.06);
+  transform: rotate(-15deg);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+/* Glowing orb */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  left: 30%;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,197,24,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--fifa-gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.subtitle::before {
+  content: '';
+  display: inline-block;
+  width: 40px; height: 2px;
+  background: var(--fifa-gold);
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--fifa-white);
+  margin-bottom: 0.5rem;
+}
+
+.title .highlight {
+  display: block;
+  color: var(--fifa-gold);
+  font-size: 0.6em;
+  letter-spacing: 0.05em;
+  -webkit-text-stroke: 1px var(--fifa-gold-dark);
+}
+
+.tagline {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fifa-gray);
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--fifa-red);
+  padding-left: 1rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--fifa-gray);
+  max-width: 500px;
+  margin-bottom: 2.5rem;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border-radius: 10px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--fifa-gold) 0%, var(--fifa-gold-dark) 100%);
+  color: var(--fifa-navy);
+  box-shadow: 0 4px 20px rgba(245,197,24,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-gold), 0 8px 30px rgba(245,197,24,0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--fifa-white);
+  border: 2px solid rgba(255,255,255,0.25);
+}
+.btn-outline:hover {
+  border-color: var(--fifa-gold);
+  color: var(--fifa-gold);
+  transform: translateY(-3px);
+}
+
+/* Hero Image */
+.hero-image {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.background-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(12rem, 22vw, 20rem);
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(245,197,24,0.12);
+  pointer-events: none;
+  z-index: 0;
+  line-height: 1;
+  user-select: none;
+}
+
+.player-cutout {
+  position: relative;
+  z-index: 2;
+  width: clamp(280px, 40vw, 520px);
+  height: auto;
+  object-fit: cover;
+  filter: drop-shadow(0 20px 60px rgba(245,197,24,0.2)) drop-shadow(0 0 30px rgba(230,57,70,0.1));
+  animation: heroFloat 4s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* Hero badge — WE ARE 26 */
+.hero-badge {
+  position: absolute;
+  top: 5%;
+  right: -5%;
+  background: var(--fifa-gold);
+  color: var(--fifa-navy);
+  font-family: 'Bebas Neue', sans-serif;
+  padding: 0.8rem 1.4rem;
+  border-radius: 12px;
+  text-align: center;
+  line-height: 1.1;
+  box-shadow: var(--glow-gold);
+  z-index: 3;
+}
+.hero-badge .badge-big { font-size: 1.6rem; display: block; letter-spacing: 0.05em; }
+.hero-badge .badge-small { font-size: 0.6rem; letter-spacing: 0.1em; }
+
+/* Host nations strip */
+.host-strip {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  display: flex;
+  height: 4px;
+}
+.host-strip span {
+  flex: 1;
+  display: block;
+}
+.host-strip .usa { background: var(--host-usa); }
+.host-strip .mex { background: var(--host-mex); }
+.host-strip .can { background: var(--host-can); }
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--fifa-gray);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  animation: pulse 2s ease-in-out infinite;
+  z-index: 2;
+}
+.scroll-indicator::after {
+  content: '';
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, var(--fifa-gold), transparent);
+}
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* ====================================================
+   STATS / SNAPSHOT SECTION
+   ==================================================== */
+.stats-section {
+  position: relative;
+  z-index: 1;
+  padding: 5rem clamp(1.5rem, 6vw, 5rem);
+  background: var(--fifa-navy-2);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* UNITED 2026 banner behind stats */
+.stats-section::before {
+  content: 'UNITED 2026';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(5rem, 12vw, 10rem);
+  color: rgba(245,197,24,0.03);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: 0.1em;
+}
+
+.stats-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(245,197,24,0.05) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--fifa-gold);
+  box-shadow: var(--glow-gold);
+}
+.stat-card:hover::before { opacity: 1; }
+
+.stat-icon {
+  font-size: 2rem;
+  color: var(--fifa-gold);
+  margin-bottom: 1rem;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(245,197,24,0.5));
+}
+
+.stat-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--fifa-gray);
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+  color: var(--fifa-white);
+  line-height: 1.3;
+}
+
+/* ====================================================
+   ABOUT SECTION
+   ==================================================== */
+.about-section {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  padding: 6rem clamp(1.5rem, 6vw, 5rem);
+  align-items: center;
+  overflow: hidden;
+}
+
+.about-image {
+  position: relative;
+}
+
+.action-shot {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+  aspect-ratio: 4/5;
+  filter: brightness(0.9) contrast(1.05);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  transition: transform var(--transition);
+}
+.about-image:hover .action-shot { transform: scale(1.02); }
+
+/* Decorative accent blobs */
+.accent-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+.blob-purple {
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, #7c3aed, transparent);
+  bottom: -60px; right: -60px;
+}
+
+/* FIFA frame overlay on about image */
+.about-image::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: calc(var(--radius-xl) + 4px);
+  background: linear-gradient(135deg, var(--fifa-gold), transparent 40%, var(--fifa-red) 100%);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* About image badge */
+.about-image::after {
+  content: '2026';
+  position: absolute;
+  bottom: 1.5rem; right: 1.5rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  color: rgba(245,197,24,0.15);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.about-content { position: relative; z-index: 1; }
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.5rem;
+  color: var(--fifa-white);
+}
+.section-title .highlight { color: var(--fifa-gold); }
+.text-center { text-align: center; }
+
+.about-content p {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--fifa-gray);
+  margin-bottom: 1.25rem;
+}
+
+.about-content p strong { color: var(--fifa-white); }
+.about-content p em { color: var(--fifa-gold); font-style: normal; font-weight: 600; }
+
+/* About "WE ARE 26" pill */
+.we-are-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, var(--fifa-gold), var(--fifa-gold-dark));
+  color: var(--fifa-navy);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+}
+
+/* ====================================================
+   TROPHY SECTION
+   ==================================================== */
+.trophy-section {
+  position: relative;
+  z-index: 1;
+  padding: 6rem clamp(1.5rem, 6vw, 5rem);
+  background: var(--fifa-navy-2);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+
+.trophy-section > .section-title {
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.trophy-container {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.trophy-column {
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.trophy-column::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--fifa-gold), var(--fifa-red));
+}
+
+.trophy-column:hover {
+  border-color: rgba(245,197,24,0.3);
+  box-shadow: var(--glow-gold);
+  transform: translateY(-4px);
+}
+
+.trophy-column h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fifa-gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.trophy-column h3 i { font-size: 1rem; }
+
+.honours-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.honours-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--fifa-gray);
+  line-height: 1.5;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.honours-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+.medal { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+.honours-list li strong { color: var(--fifa-white); font-weight: 700; }
+
+/* Certificate */
+.certificate-wrapper {
+  position: relative;
+  z-index: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.certificate-wrapper h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fifa-gold);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.cert-img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 12px;
+  border: 2px solid var(--glass-border);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  transition: transform var(--transition);
+}
+.cert-img:hover { transform: scale(1.01); }
+
+/* ====================================================
+   MEDIA SECTION
+   ==================================================== */
+.media-section {
+  position: relative;
+  z-index: 1;
+  padding: 6rem clamp(1.5rem, 6vw, 5rem);
+  overflow: hidden;
+}
+
+.media-section > .section-title {
+  margin-bottom: 3rem;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 4rem;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+}
+
+.video-container iframe {
+  width: 100%; height: 100%;
+  display: block;
+  border: none;
+}
+
+/* Video glowing frame */
+.video-container::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--radius-xl) + 2px);
+  background: linear-gradient(135deg, var(--fifa-gold), var(--fifa-red), var(--fifa-gold));
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.gallery-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+  filter: brightness(0.85) contrast(1.05);
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.gallery-img:hover {
+  filter: brightness(1) contrast(1.1);
+  transform: scale(1.03);
+  border-color: var(--fifa-gold);
+  box-shadow: var(--glow-gold);
+  z-index: 2;
+  position: relative;
+}
+
+/* ====================================================
+   FOOTER / CONTACT SECTION
+   ==================================================== */
+.footer-section {
+  position: relative;
+  z-index: 1;
+  padding: 6rem clamp(1.5rem, 6vw, 5rem) 3rem;
+  background: var(--fifa-navy-2);
+  border-top: 1px solid var(--glass-border);
+  text-align: center;
+  overflow: hidden;
+}
+
+.footer-section::before {
+  content: 'WE ARE 26';
+  position: absolute;
+  bottom: -2rem; left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(6rem, 15vw, 14rem);
+  color: rgba(245,197,24,0.025);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.footer-section > .section-title { margin-bottom: 1rem; }
+
+.footer-desc {
+  color: var(--fifa-gray);
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0 auto 3rem;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.8rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--glass-bg);
+  color: var(--fifa-white);
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all var(--transition);
+  backdrop-filter: blur(10px);
+}
+
+.contact-link i { font-size: 1.1rem; }
+.contact-link:hover {
+  border-color: var(--fifa-gold);
+  color: var(--fifa-gold);
+  transform: translateY(-4px);
+  box-shadow: var(--glow-gold);
+  background: rgba(245,197,24,0.05);
+}
+
+.contact-link:nth-child(1) i { color: #E1306C; }  /* Instagram */
+.contact-link:nth-child(2) i { color: var(--fifa-gold); } /* Email */
+.contact-link:nth-child(3) i { color: #25D366; }  /* WhatsApp */
+
+/* Footer tricolor divider */
+.footer-divider {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg,
+    var(--host-usa) 0%, var(--host-usa) 33%,
+    var(--fifa-gold) 33%, var(--fifa-gold) 66%,
+    var(--host-mex) 66%, var(--host-mex) 100%
+  );
+  margin-bottom: 1.5rem;
+  border-radius: 3px;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: var(--fifa-gray);
+  letter-spacing: 0.05em;
+  position: relative;
+  z-index: 1;
+}
+.copyright a { color: var(--fifa-gold); text-decoration: none; }
+.copyright a:hover { text-decoration: underline; }
+
+/* Developer link */
+.developer-link {
+  color: var(--fifa-gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ====================================================
+   MOBILE NAV
+   ==================================================== */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: rgba(8,12,24,0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 1.5rem 1.5rem;
+    gap: 0;
+    z-index: 999;
+  }
+  .nav-links.open {
+    display: flex;
+    animation: slideDown 0.25s ease forwards;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .nav-links li { width: 100%; }
+  .nav-links a {
+    display: block;
+    font-size: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: var(--fifa-white);
+    letter-spacing: 0.1em;
+  }
+  .nav-links li:last-child a { border-bottom: none; }
+  .hamburger { display: flex; }
+  .navbar { height: 60px; }
+}
+
+/* ====================================================
+   RESPONSIVE — Tablet (768px – 1024px)
+   ==================================================== */
+@media (max-width: 1024px) {
+  .hero-section {
+    gap: 2rem;
+    padding: 100px clamp(1.5rem, 5vw, 3rem) 4rem;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 5rem clamp(1.5rem, 5vw, 3rem);
+  }
+
+  .trophy-container {
+    gap: 2rem;
+  }
+
+  .photo-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ====================================================
+   RESPONSIVE — Mobile L (max 768px)
+   Covers: most Android flagships, iPhone Plus/Max
+   ==================================================== */
+@media (max-width: 768px) {
+
+  /* ── Hero ── */
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 1.25rem 5rem;
+    min-height: 100svh;
+    gap: 0;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .hero-content {
+    order: 2;
+    max-width: 100%;
+  }
+
+  .hero-image {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+
+  .player-cutout {
+    width: min(85vw, 320px);
+    height: auto;
+    animation: heroFloat 4s ease-in-out infinite;
+  }
+
+  /* Hide watermark number behind image on mobile */
+  .background-number {
+    font-size: 10rem;
+    opacity: 0.3;
+  }
+
+  /* WE ARE 26 badge — reposition */
+  .hero-badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 10px;
+    z-index: 5;
+  }
+  .hero-badge .badge-big  { font-size: 1rem; }
+  .hero-badge .badge-small { font-size: 0.5rem; }
+
+  .subtitle {
+    justify-content: center;
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+  .subtitle::before { display: none; }
+
+  .title {
+    font-size: clamp(3rem, 14vw, 5rem);
+    line-height: 0.92;
+    margin-bottom: 0.6rem;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+    border-left: none;
+    padding-left: 0;
+    border-top: 2px solid var(--fifa-red);
+    padding-top: 0.5rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: 0.88rem;
+    margin: 0 auto 1.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .scroll-indicator { display: none; }
+
+  /* ── Stats ── */
+  .stats-section {
+    padding: 3rem 1.25rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .stat-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .stat-label { font-size: 0.65rem; }
+  .stat-value { font-size: 1rem; }
+
+  /* ── About ── */
+  .about-section {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 4rem 1.25rem;
+  }
+
+  .about-image {
+    order: 1;
+  }
+
+  .action-shot {
+    aspect-ratio: 16/10;
+    width: 100%;
+    max-height: 260px;
+    object-position: top;
+  }
+
+  .about-content {
+    order: 2;
+  }
+
+  .we-are-pill {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 9vw, 3.5rem);
+  }
+
+  .about-content p {
+    font-size: 0.88rem;
+    line-height: 1.8;
+  }
+
+  /* ── Trophy ── */
+  .trophy-section {
+    padding: 4rem 1.25rem;
+  }
+
+  .trophy-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .trophy-column {
+    padding: 1.5rem;
+  }
+
+  .honours-list li {
+    font-size: 0.85rem;
+  }
+
+  .certificate-wrapper {
+    padding: 1.5rem;
+  }
+
+  /* ── Media ── */
+  .media-section {
+    padding: 4rem 1.25rem;
+  }
+
+  .photo-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .gallery-img {
+    aspect-ratio: 1;
+  }
+
+  /* ── Footer ── */
+  .footer-section {
+    padding: 4rem 1.25rem 2rem;
+  }
+
+  .footer-desc {
+    font-size: 0.9rem;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .contact-link {
+    justify-content: center;
+    padding: 0.85rem 1.2rem;
+    font-size: 0.8rem;
+    border-radius: 10px;
+  }
+}
+
+/* ====================================================
+   RESPONSIVE — Mobile M/S (max 480px)
+   Covers: iPhone SE, Galaxy A series, budget Androids
+   ==================================================== */
+@media (max-width: 480px) {
+
+  .navbar {
+    padding: 0 1rem;
+    height: 58px;
+  }
+
+  .logo { font-size: 1.2rem; }
+
+  .dropdown-selected { padding: 0.35rem 0.6rem; font-size: 0.75rem; }
+  .theme-toggle, .hamburger { width: 34px; height: 34px; font-size: 0.9rem; }
+
+  .hero-section {
+    padding: 75px 1rem 4rem;
+  }
+
+  .player-cutout {
+    width: min(80vw, 260px);
+  }
+
+  .title {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .stat-card { padding: 1rem 0.75rem; }
+  .stat-icon { font-size: 1.3rem; margin-bottom: 0.5rem; }
+  .stat-value { font-size: 0.9rem; }
+  .stat-label { font-size: 0.6rem; }
+
+  .photo-gallery {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .gallery-img { aspect-ratio: 16/9; }
+}
+
+/* ====================================================
+   RESPONSIVE — Mobile XS (max 360px)
+   Covers: Very small/old phones, Galaxy A02
+   ==================================================== */
+@media (max-width: 360px) {
+
+  .navbar { padding: 0 0.75rem; }
+  .logo { font-size: 1.05rem; }
+
+  .hero-section { padding: 70px 0.75rem 3rem; }
+
+  .title { font-size: clamp(2.2rem, 12vw, 3.2rem); }
+
+  .btn { font-size: 0.75rem; padding: 0.8rem 1rem; }
+
+  .stat-card { padding: 0.9rem 0.6rem; }
+  .stat-value { font-size: 0.85rem; }
+
+  .trophy-column { padding: 1.2rem 1rem; }
+  .certificate-wrapper { padding: 1.2rem 0.75rem; }
+
+  .contact-link { font-size: 0.75rem; padding: 0.75rem 1rem; }
+}
+
+/* ====================================================
+   SAFE AREA — Notch/Dynamic Island/Home Bar support
+   ==================================================== */
+@supports (padding: max(0px)) {
+  .navbar {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  .hero-section,
+  .stats-section,
+  .about-section,
+  .trophy-section,
+  .media-section,
+  .footer-section {
+    padding-left: max(1.25rem, env(safe-area-inset-left));
+    padding-right: max(1.25rem, env(safe-area-inset-right));
+  }
+  .footer-section {
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* ====================================================
+   ANIMATIONS — Scroll Reveal
+   ==================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.reveal-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.reveal-children.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:0.1s; }
+.reveal-children.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.2s; }
+.reveal-children.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.3s; }
+.reveal-children.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.4s; }
+.reveal-children.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay:0.5s; }
+.reveal-children.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay:0.6s; }
+
+/* Number counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.stat-card { animation: countUp 0.5s ease both; }
+
+/* Glowing pulse for gold elements */
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(245,197,24,0.3); }
+  50%       { box-shadow: 0 0 40px rgba(245,197,24,0.6); }
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mohamed Osama — U17 Striker | FIFA World Cup 2026</title>
+    <meta name="description" content="Profil resmi Mohamed Osama Gariba, striker muda berbakat dari Libya yang bermain di Borussia Mönchengladbach Academy Indonesia. WE ARE 26.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;600;700;800;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- FIFA 26 Background Watermark -->
+    <div class="fifa-watermark">26</div>
+
+    <!-- ── NAVBAR ── -->
+    <nav class="navbar">
+        <div class="logo">MOHAMED<span>OSAMA</span></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#hero"   data-i18n="nav_home">Home</a></li>
+            <li><a href="#stats"  data-i18n="nav_stats">Stats</a></li>
+            <li><a href="#about"  data-i18n="nav_about">About</a></li>
+            <li><a href="#trophy" data-i18n="nav_trophies">Trophies</a></li>
+            <li><a href="#media"  data-i18n="nav_media">Media</a></li>
+        </ul>
+
+        <div class="controls">
+            <!-- Language Dropdown -->
+            <div class="custom-dropdown" id="langDropdown">
+                <div class="dropdown-selected" id="langSelected">
+                    <img src="https://flagcdn.com/w20/id.png" alt="ID"> <span>ID</span> <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="dropdown-options" id="langOptions">
+                    <div class="dropdown-option" data-value="id">
+                        <img src="https://flagcdn.com/w20/id.png" alt="ID"> <span>ID</span>
+                    </div>
+                    <div class="dropdown-option" data-value="en">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="EN"> <span>EN</span>
+                    </div>
+                    <div class="dropdown-option" data-value="ar">
+                        <img src="https://flagcdn.com/w20/sa.png" alt="AR"> <span>AR</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════
+         SECTION 1: HERO
+    ══════════════════════════════════════ -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content reveal">
+            <h2 class="subtitle" data-i18n="hero_subtitle">U17 STRIKER | LIBYA 🇱🇾</h2>
+            <h1 class="title">
+                MOHAMED<br>OSAMA<br>
+                <span class="highlight">MOHAMED GARIBA</span>
+            </h1>
+            <h3 class="tagline"><span data-i18n="hero_tagline">LETHAL STRIKER. PROVEN WINNER.</span></h3>
+            <p class="description" data-i18n="hero_desc">Bermain dengan ketajaman insting, kecepatan, dan mentalitas juara di setiap menit pertandingan.</p>
+            <div class="cta-buttons">
+                <a href="#media"   class="btn btn-primary" data-i18n="btn_video"><i class="fas fa-play"></i> LIHAT VIDEO HIGHLIGHTS</a>
+                <a href="#contact" class="btn btn-outline"  data-i18n="btn_contact">HUBUNGI SEKARANG</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <!-- WE ARE 26 badge -->
+            <div class="hero-badge">
+                <span class="badge-big">WE ARE 26</span>
+                <span class="badge-small">Slogan kampanye utama</span>
+            </div>
+
+            <div class="background-number">10</div>
+            <picture>
+                <source srcset="foto/1.webp" type="image/webp">
+                <img src="foto/1.jpeg" alt="Mohamed Osama" class="player-cutout">
+            </picture>
+        </div>
+
+        <!-- Host nations strip -->
+        <div class="host-strip">
+            <span class="usa"></span>
+            <span class="mex"></span>
+            <span class="can"></span>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">SCROLL</div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 2: PLAYER SNAPSHOT
+    ══════════════════════════════════════ -->
+    <section id="stats" class="stats-section">
+        <div class="stats-grid reveal-children">
+            <div class="stat-card">
+                <i class="fas fa-running stat-icon"></i>
+                <div class="stat-label" data-i18n="stat_position_label">POSISI</div>
+                <div class="stat-value" data-i18n="stat_position_val">Striker / Winger</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-shoe-prints stat-icon"></i>
+                <div class="stat-label" data-i18n="stat_foot_label">KAKI DOMINAN</div>
+                <div class="stat-value" data-i18n="stat_foot_val">Kanan (Right Foot)</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-ruler-vertical stat-icon"></i>
+                <div class="stat-label" data-i18n="stat_posture_label">POSTUR</div>
+                <div class="stat-value">165 CM | 50 KG</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-shield-alt stat-icon"></i>
+                <div class="stat-label" data-i18n="stat_club_label">KLUB SAAT INI</div>
+                <div class="stat-value">Borussia Mönchengladbach<br>Academy Indonesia</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 3: THE PLAYER
+    ══════════════════════════════════════ -->
+    <section id="about" class="about-section">
+        <div class="about-image reveal">
+            <picture>
+                <source srcset="foto/2.webp" type="image/webp">
+                <img src="foto/2.jpeg" alt="Mohamed Match Action" class="action-shot">
+            </picture>
+            <div class="accent-blob blob-purple"></div>
+        </div>
+        <div class="about-content reveal">
+            <div class="we-are-pill"><i class="fas fa-futbol"></i> WE ARE 26 — UNITED 2026</div>
+            <h2 class="section-title">
+                <span data-i18n="about_title_1">BORN TO </span>
+                <span class="highlight" data-i18n="about_title_2">SCORE.</span>
+            </h2>
+            <p data-i18n="about_p1">
+                Ditempa dalam disiplin taktis bergaya Eropa bersama <strong>Borussia Mönchengladbach Academy Indonesia</strong>, saya adalah penyerang serba bisa (<em>versatile</em>) yang mampu beroperasi sebagai <em>Striker</em> murni, <em>Winger</em>, maupun <em>Free Striker</em>.
+            </p>
+            <p data-i18n="about_p2">
+                Berbekal pengalaman menjuarai kompetisi bergengsi seperti <em>ISCO Cup U17</em>, saya memahami apa yang dibutuhkan untuk menang di level tertinggi. Saya siap membawa ketajaman penyelesaian akhir dan kecepatan akselerasi ke jenjang sepak bola yang lebih tinggi bersama tim Anda.
+            </p>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 4: TROPHY ROOM
+    ══════════════════════════════════════ -->
+    <section id="trophy" class="trophy-section">
+        <h2 class="section-title text-center reveal">
+            <span data-i18n="trophy_title_1">TROPHY </span>
+            <span class="highlight" data-i18n="trophy_title_2">ROOM</span>
+        </h2>
+        <div class="trophy-container reveal-children">
+            <div class="trophy-column">
+                <h3><i class="fas fa-trophy"></i> <span data-i18n="trophy_team">TEAM HONOURS</span></h3>
+                <ul class="honours-list">
+                    <li>
+                        <span class="medal gold">🥇</span>
+                        <div><strong data-i18n="trophy_1st">JUARA 1</strong> – ISCO Cup U17</div>
+                    </li>
+                    <li>
+                        <span class="medal gold">🥇</span>
+                        <div><strong data-i18n="trophy_1st">JUARA 1</strong> – Askot PSSI Tangerang Selatan 2024/2025</div>
+                    </li>
+                    <li>
+                        <span class="medal silver">🥈</span>
+                        <div><strong data-i18n="trophy_2nd">RUNNER-UP</strong> – Bali 7s</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="trophy-column">
+                <h3><i class="fas fa-star"></i> <span data-i18n="trophy_ind">INDIVIDUAL AWARDS</span></h3>
+                <ul class="honours-list">
+                    <li>
+                        <span class="medal gold">🥇</span>
+                        <div><strong data-i18n="trophy_topscorer">TOP SCORER</strong> – ISCO Cup U17</div>
+                    </li>
+                    <li>
+                        <span class="medal gold">🥇</span>
+                        <div><strong data-i18n="trophy_beststriker">BEST STRIKER</strong></div>
+                    </li>
+                    <li>
+                        <span class="medal bronze">🎖️</span>
+                        <div><strong>9x</strong> <span data-i18n="trophy_potm">Player of the Match</span></div>
+                    </li>
+                    <li>
+                        <span class="medal bronze">🎖️</span>
+                        <div><strong>8x</strong> <span data-i18n="trophy_motm">Man of the Match</span></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="certificate-wrapper reveal">
+            <h3><i class="fas fa-certificate"></i> <span data-i18n="cert_title">CERTIFICATIONS &amp; DOCUMENTS</span></h3>
+            <picture>
+                <source srcset="sertivikat/sertivikat.webp" type="image/webp">
+                <img src="sertivikat/sertivikat.jpeg" alt="Certificate" class="cert-img">
+            </picture>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 5: MEDIA & HIGHLIGHTS
+    ══════════════════════════════════════ -->
+    <section id="media" class="media-section">
+        <h2 class="section-title text-center reveal">
+            <span data-i18n="media_title_1">WATCH THE </span>
+            <span class="highlight" data-i18n="media_title_2">ACTION</span>
+        </h2>
+
+        <div class="video-container reveal">
+            <iframe
+                width="560" height="315"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="Highlight Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="photo-gallery reveal-children">
+            <picture>
+                <source srcset="foto/3.webp" type="image/webp">
+                <img src="foto/3.jpeg" alt="Action 1" class="gallery-img">
+            </picture>
+            <img src="foto/4.jpeg" alt="Action 2" class="gallery-img">
+            <picture>
+                <source srcset="foto/5.webp" type="image/webp">
+                <img src="foto/5.jpeg" alt="Action 3" class="gallery-img">
+            </picture>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         SECTION 6: FOOTER & CONTACT
+    ══════════════════════════════════════ -->
+    <footer id="contact" class="footer-section">
+        <h2 class="section-title reveal">
+            <span data-i18n="footer_title_1">READY TO WIN </span>
+            <span class="highlight" data-i18n="footer_title_2">TOGETHER?</span>
+        </h2>
+        <p class="footer-desc" data-i18n="footer_desc">Rekrut Mohamed untuk memperkuat lini serang tim Anda musim ini.</p>
+
+        <div class="contact-info reveal-children">
+            <a href="https://instagram.com/Mohammad_ghariba" target="_blank" class="contact-link">
+                <i class="fab fa-instagram"></i> @Mohammad_ghariba
+            </a>
+            <a href="mailto:email@example.com" class="contact-link">
+                <i class="fas fa-envelope"></i> email@example.com
+            </a>
+            <a href="https://wa.me/1234567890" target="_blank" class="contact-link">
+                <i class="fab fa-whatsapp"></i> +62 123 4567 890
+            </a>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="copyright">
+            <span data-i18n="footer_rights">Designed &amp; Engineered by</span>
+            <a href="https://satujalan.id" target="_blank" class="developer-link">satujalan.id</a>
+            &copy; 2026 — WE ARE 26
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
