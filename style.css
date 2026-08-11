@@ -1150,9 +1150,16 @@ body.light-mode .navbar {
 
 /* Developer link */
 .developer-link {
-  color: var(--fifa-gold);
+  color: #ffe600;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 230, 0, 0.8), 0 0 20px rgba(255, 230, 0, 0.5), 0 0 30px rgba(255, 230, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.developer-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 230, 0, 1), 0 0 30px rgba(255, 230, 0, 0.8), 0 0 45px rgba(255, 230, 0, 0.6);
 }
 
 /* ====================================================
